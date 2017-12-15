@@ -12,7 +12,7 @@ export class BooksComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   title = 'My Books';
-  books: Book[] = [];
+  books: Array<Book> = [];
   selectedBook: Book;
   p = 1;
 
