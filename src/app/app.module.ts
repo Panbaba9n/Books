@@ -11,17 +11,19 @@ import { BooksComponent } from './books/books.component';
 
 import { DataService } from './data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BooksComponent
+    BooksComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    // HttpModule,
     BrowserAnimationsModule,
     NgxPaginationModule
   ],

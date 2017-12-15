@@ -9,23 +9,19 @@ import { Book } from '../book';
 })
 export class BooksComponent implements OnInit {
 
-  constructor(private dataService:DataService) { }
+  constructor(private dataService: DataService) { }
 
-  title:string = 'My Books';
-  books:Book[] = [];
-  selectedBook:Book;
-  p: number = 1;
+  title = 'My Books';
+  books: Book[] = [];
+  selectedBook: Book;
+  p = 1;
 
   onSelect(book: Book): void {
-  	this.selectedBook = book;
+    this.selectedBook = book;
   }
 
   ngOnInit() {
     this.books = this.dataService.myData();
-
-    console.log(this.books);
   }
-
-  
 
 }

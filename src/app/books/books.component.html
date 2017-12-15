@@ -9,11 +9,13 @@
 </ul>
 <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
 
-<div *ngIf="selectedBook">
+<!-- <div *ngIf="selectedBook">
 	<h2 >{{ selectedBook.name | uppercase }} Details</h2>
 	<div >
 		<label>name:
 			<input [(ngModel)]="selectedBook.name" placeholder="name">
 		</label>
 	</div>
-</div>
+</div> -->
+
+<app-book-detail [book]="selectedBook"></app-book-detail>
