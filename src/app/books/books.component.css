@@ -1,0 +1,6 @@
+.selected {
+	background: #ccc;
+}
+.my-pagination /deep/ .ngx-pagination .current {
+	background: #369;
+}

@@ -1,0 +1,19 @@
+<h1>{{ title | uppercase }}</h1>
+
+<ul class="books">
+	<li *ngFor="let book of books | paginate: { itemsPerPage: 5, currentPage: p }"
+	[class.selected]="book === selectedBook"
+	(click)="onSelect(book)">
+		<span class="badge">{{book.id}}</span> {{book.name}}
+	</li>
+</ul>
+<pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+
+<div *ngIf="selectedBook">
+	<h2 >{{ selectedBook.name | uppercase }} Details</h2>
+	<div >
+		<label>name:
+			<input [(ngModel)]="selectedBook.name" placeholder="name">
+		</label>
+	</div>
+</div>
