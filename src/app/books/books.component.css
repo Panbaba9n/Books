@@ -4,3 +4,6 @@
 .my-pagination /deep/ .ngx-pagination .current {
 	background: #369;
 }
+.pointer{
+	cursor: pointer;
+}

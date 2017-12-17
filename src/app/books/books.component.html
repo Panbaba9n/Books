@@ -1,21 +1,50 @@
 <h1>{{ title | uppercase }}</h1>
 
-<ul class="books">
-	<li *ngFor="let book of books | paginate: { itemsPerPage: 5, currentPage: p }"
-	[class.selected]="book === selectedBook"
-	(click)="onSelect(book)">
-		<span class="badge">{{book.id}}</span> {{book.name}}
-	</li>
-</ul>
+<table class="table table-responsive table-hover">
+	<tr>
+		<th class="pointer" (click)="sort('id')">ID
+			<i class="fa" 
+			[ngClass]="{'fa-sort': column != 'CategoryID', 
+			'fa-sort-asc': (column == 'id' && isDesc), 
+			'fa-sort-desc': (column == 'id' && !isDesc) }"
+			aria-hidden="true"></i>
+		</th>
+		<th class="pointer" (click)="sort('name')">Name
+			<i class="fa" 
+			[ngClass]="{'fa-sort': column != 'CategoryID', 
+			'fa-sort-asc': (column == 'name' && isDesc), 
+			'fa-sort-desc': (column == 'name' && !isDesc) }"
+			aria-hidden="true"></i>
+		</th>
+		<th class="pointer" (click)="sort('author')">Author
+			<i class="fa" 
+			[ngClass]="{'fa-sort': column != 'CategoryID', 
+			'fa-sort-asc': (column == 'author' && isDesc), 
+			'fa-sort-desc': (column == 'author' && !isDesc) }"
+			aria-hidden="true"></i>
+		</th>
+		<th class="pointer" (click)="sort('pages')">Pages
+			<i class="fa" 
+			[ngClass]="{'fa-sort': column != 'CategoryID', 
+			'fa-sort-asc': (column == 'pages' && isDesc), 
+			'fa-sort-desc': (column == 'pages' && !isDesc) }"
+			aria-hidden="true"></i>
+		</th>
+		<th class="pointer" (click)="sort('publishDate')">Published date
+			<i class="fa" 
+			[ngClass]="{'fa-sort': column != 'CategoryID', 
+			'fa-sort-asc': (column == 'publishDate' && isDesc), 
+			'fa-sort-desc': (column == 'publishDate' && !isDesc) }"
+			aria-hidden="true"></i>
+		</th>
+	</tr>
+	<tr *ngFor="let book of books | paginate: { itemsPerPage: 5, currentPage: p }">
+		<td><a routerLink="/detail/{{book.id}}">{{book.id}}</a></td>
+		<td><a routerLink="/detail/{{book.id}}">{{book.name}}</a></td>
+		<td><a routerLink="/detail/{{book.id}}">{{book.author}}</a></td>
+		<td><a routerLink="/detail/{{book.id}}">{{book.pages}}</a></td>
+		<td><a routerLink="/detail/{{book.id}}">{{book.publishDate | date: "dd-MM-yyyy"}}</a></td>
+	</tr>
+</table>
+
 <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
-
-<!-- <div *ngIf="selectedBook">
-	<h2 >{{ selectedBook.name | uppercase }} Details</h2>
-	<div >
-		<label>name:
-			<input [(ngModel)]="selectedBook.name" placeholder="name">
-		</label>
-	</div>
-</div> -->
-
-<app-book-detail [book]="selectedBook"></app-book-detail>

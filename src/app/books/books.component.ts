@@ -13,19 +13,33 @@ export class BooksComponent implements OnInit {
 
   title = 'My Books';
   books: Array<Book> = [];
-  selectedBook: Book;
   p = 1;
-
-  onSelect(book: Book): void {
-    this.selectedBook = book;
-  }
+  isDesc = false;
+  column = 'CategoryName';
 
   ngOnInit() {
     this.getBooks();
   }
 
   getBooks(): void {
-    this.books = this.dataService.myData();
+    this.dataService.myData()
+      .subscribe(books => this.books = books);
+  }
+
+  sort(property) {
+    this.isDesc = !this.isDesc;
+    this.column = property;
+    const direction = this.isDesc ? 1 : -1;
+
+    this.books.sort(function(a, b) {
+      if (a[property] < b[property]) {
+        return -1 * direction;
+      } else if (a[property] > b[property]) {
+        return 1 * direction;
+      } else {
+        return 0;
+      }
+    });
   }
 
 }

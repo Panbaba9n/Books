@@ -5,8 +5,25 @@
 <div *ngIf="book">
 	<h2 >{{ book.name | uppercase }} Details</h2>
 	<div >
-		<label>name:
+		<label>Title:
 			<input [(ngModel)]="book.name" placeholder="name">
 		</label>
 	</div>
+	<div >
+		<label>Author:
+			<input [(ngModel)]="book.author" placeholder="author">
+		</label>
+	</div>
+	<div >
+		<label>Pages:
+			<input [(ngModel)]="book.pages" placeholder="pages">
+		</label>
+	</div>
+	<div >
+		<label>Published date:
+			<input type="date" [(ngModel)]="book.publishDate">
+		</label>
+	</div>
 </div>
+
+<button (click)="goBack()">go back</button>
