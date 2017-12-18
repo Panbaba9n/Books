@@ -5,6 +5,11 @@ import { HttpModule } from '@angular/http';
 
 import {NgxPaginationModule} from 'ngx-pagination';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material';
+
+
 
 import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
@@ -27,7 +32,10 @@ import { AppRoutingModule } from './app-routing.module';
     // HttpModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
-    AppRoutingModule
+    MatDatepickerModule,
+    MatFormFieldModule,
+    AppRoutingModule,
+    MatNativeDateModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

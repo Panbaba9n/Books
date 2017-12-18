@@ -21,9 +21,12 @@
 	</div>
 	<div >
 		<label>Published date:
-			<input type="date" [(ngModel)]="book.publishDate">
+			<input [matDatepicker]="myDatepicker" [(ngModel)]="book.publishDate">
+			<mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+			<mat-datepicker #myDatepicker></mat-datepicker>
 		</label>
 	</div>
+
 </div>
 
 <button (click)="goBack()">go back</button>

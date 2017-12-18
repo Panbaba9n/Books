@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { FormControl } from '@angular/forms';
 
 import { Book } from '../book';
 
@@ -17,7 +18,7 @@ export class BookDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
-    private location: Location
+    private location: Location,
   ) { }
 
   ngOnInit(): void {
